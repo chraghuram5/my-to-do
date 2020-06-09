@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 
 mongoose.connect('mongodb://localhost/my-to-do-dev');
-
+mongoose.set('useFindAndModify', false);
 const db=mongoose.connection;
 
 db.on('error', console.log.bind(console, "Error connecting to Database"));

@@ -20,7 +20,7 @@
     <div class="cards">
         <%if(cards!=null){%>
             <% for(card of cards){%>
-                <a href="mark-complete?id=<%=card._id%>">mark complete</a>
+                <a href="mark-complete?id=<%=card._id%>&status=<%=card.status%>">toggle complete</a>
                 <%if(card.status=="incomplete"){%>
                     <div class="incomplete">
                         <%=card.title%>

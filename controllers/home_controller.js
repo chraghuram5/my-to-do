@@ -30,12 +30,23 @@ module.exports.createTask=function(req,res){
 
 module.exports.markComplete=function(req,res){
     let id=req.query.id;
-    Card.findByIdAndUpdate(id,{status: "complete"},function(err){
-        if(err){
-            console.log("error in marking complete");
-            return;
-        }
-    })
+    let status=req.query.status;
+    if(status=="complete"){
+        Card.findByIdAndUpdate(id,{status: "incomplete"},function(err){
+            if(err){
+                console.log("error in marking complete");
+                return;
+            }
+        });
+    }
+    else{
+        Card.findByIdAndUpdate(id,{status: "complete"},function(err){
+            if(err){
+                console.log("error in marking complete");
+                return;
+            }
+        });
+    }
 
     return res.redirect('/home');
 }
