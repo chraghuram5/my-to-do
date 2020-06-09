@@ -19,7 +19,6 @@ const cardSchema=new mongoose.Schema({
     },
     label:{
         type: String,
-        required: true
     },
 },{
     timestamps:true

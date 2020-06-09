@@ -1,6 +1,14 @@
 const Card=require('../models/card');
 module.exports.home=function(req,res){
-    return res.render('home');
+    Card.find({},function(err, cards){
+        if(err){
+            console.log("error in fetching cards");
+            return;
+        }
+        res.render('home',{
+            cards: cards
+        });
+    })
 }
 
 module.exports.createTask=function(req,res){
@@ -14,5 +22,20 @@ module.exports.createTask=function(req,res){
             console.log("Error creating card in Database");
             return;
         }
+        console.log("Added to database");
+    });
+
+    return res.redirect('/home');
+}
+
+module.exports.markComplete=function(req,res){
+    let id=req.query.id;
+    Card.findByIdAndUpdate(id,{status: "complete"},function(err){
+        if(err){
+            console.log("error in marking complete");
+            return;
+        }
     })
+
+    return res.redirect('/home');
 }

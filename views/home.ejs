@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>my-to-do</title>
+</head>
+
+<body>
+    <form action="/create-card" method="post">
+        <label for="title">Description:</label>
+        <input type="text" name="title" id="title" placeholder="What do you need to do?" required>
+        <label for="label">Category:</label>
+        <select id="label" name="label">
+            <option value="work">work</option>
+            <option value="personal">personal</option>
+        </select>
+        <label for="dueDate">Due Date</label>
+        <input type="date" name="dueDate" placeholder="dd/mm/yyyy">
+        <button type="submit">Submit</button>
+    </form>
+    <div class="cards">
+        <%if(cards!=null){%>
+            <% for(card of cards){%>
+                <a href="mark-complete?id=<%=card._id%>">mark complete</a>
+                <%if(card.status=="incomplete"){%>
+                    <div class="incomplete">
+                        <%=card.title%>
+                        <%=card.label%>
+                        <%=card.dueDate%>
+                    </div>
+                <%}else{%>
+                    <div class="complete">
+                        <strike>
+                            <%=card.title%>
+                            <%=card.label%>
+                            <%=card.dueDate%>
+                        </strike>
+                    </div>
+                <%}%>
+            <%}%>
+        <%}%>
+    </div>
+</body>
+
+</html>
