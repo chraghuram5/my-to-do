@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const cardSchema=new mongoose.Schema({
+const tasksSchema=new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -24,6 +24,6 @@ const cardSchema=new mongoose.Schema({
     timestamps:true
 });
 
-const Card=mongoose.model('Card',cardSchema);
+const Task=mongoose.model('Task',tasksSchema);
 
-module.exports=Card;
+module.exports=Task;

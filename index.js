@@ -9,6 +9,7 @@ app.use('/',require('./routes/index.js'));
 //setting view engine 
 app.set('view engine','ejs');
 app.set('views','./views');
+app.use(express.static('./assets'));
 
 //listener
 app.listen(port, function(err){

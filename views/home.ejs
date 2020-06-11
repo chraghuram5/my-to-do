@@ -2,43 +2,46 @@
 
 <head>
     <title>my-to-do</title>
+    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
-    <form action="/create-card" method="post">
-        <label for="title">Description:</label>
-        <input type="text" name="title" id="title" placeholder="What do you need to do?" required>
-        <label for="label">Category:</label>
-        <select id="label" name="label">
-            <option value="work">work</option>
-            <option value="personal">personal</option>
-        </select>
-        <label for="dueDate">Due Date</label>
-        <input type="date" name="dueDate" placeholder="dd/mm/yyyy">
-        <button type="submit">Submit</button>
-    </form>
-    <div class="cards">
-        <%if(cards!=null){%>
-            <% for(card of cards){%>
-                <a href="mark-complete?id=<%=card._id%>&status=<%=card.status%>">toggle complete</a>
-                <%if(card.status=="incomplete"){%>
-                    <div class="incomplete">
-                        <%=card.title%>
-                        <%=card.label%>
-                        <%=card.dueDate%>
-                    </div>
-                <%}else{%>
-                    <div class="complete">
-                        <strike>
-                            <%=card.title%>
-                            <%=card.label%>
-                            <%=card.dueDate%>
-                        </strike>
-                    </div>
+    <main>
+        <form action="/create-task" method="post">
+            <label for="title">Description:</label>
+            <input type="text" name="title" id="title" placeholder="What do you need to do?" required>
+            <label for="label">Category:</label>
+            <select id="label" name="label">
+                <option value="work">work</option>
+                <option value="personal">personal</option>
+            </select>
+            <label for="dueDate">Due Date</label>
+            <input type="date" name="dueDate" placeholder="dd/mm/yyyy">
+            <button type="submit">Submit</button>
+        </form>
+        <div class="tasks">
+            <%if(tasks!=null){%>
+                <% for(task of tasks){%>
+                    <a href="mark-complete?id=<%=task._id%>&status=<%=task.status%>">toggle complete</a>
+                    <%if(task.status=="incomplete"){%>
+                        <div class="incomplete">
+                            <%=task.title%>
+                            <%=task.label%>
+                            <%=task.dueDate%>
+                        </div>
+                        <%}else{%>
+                        <div class="complete">
+                            <strike>
+                                <%=task.title%>
+                                <%=task.label%>
+                                <%=task.dueDate%>
+                            </strike>
+                        </div>
+                    <%}%>
                 <%}%>
             <%}%>
-        <%}%>
-    </div>
+        </div>
+    </main>
 </body>
 
 </html>
