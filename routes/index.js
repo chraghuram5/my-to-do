@@ -6,6 +6,5 @@ app.use(express.urlencoded());
 const homeController=require('../controllers/home_controller');
 
 router.get('/home',homeController.home);
-router.post('/create-task',homeController.createTask);
-router.get('/mark-complete',homeController.markComplete);
+router.use('/tasks',require('../routes/tasks.js'));
 module.exports=router;

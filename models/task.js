@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const tasksSchema=new mongoose.Schema({
+const taskSchema=new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -11,7 +11,7 @@ const tasksSchema=new mongoose.Schema({
         required: true
     },
     dueDate:{
-        type: Date,
+        type: String,
         required: true
     },
     dueTime:{
@@ -24,6 +24,6 @@ const tasksSchema=new mongoose.Schema({
     timestamps:true
 });
 
-const Task=mongoose.model('Task',tasksSchema);
+const Task=mongoose.model('Task',taskSchema);
 
 module.exports=Task;

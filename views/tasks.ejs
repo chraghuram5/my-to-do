@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>my-to-do</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+    <main>
+        <form action="tasks/create-task" method="post">
+            <div class="description">
+                <label for="title" id="title-label">Description:</label>
+                <input type="text" name="title" id="title" placeholder="What do you need to do?" required>
+            </div>
+            <div class="category-dueDate">
+                <div class="category">
+                    <label for="label" id="category-label">Category:</label>
+                    <select id="label" name="label">
+                        <option value="work">work</option>
+                        <option value="personal">personal</option>
+                    </select>
+                </div>
+                <div class="dueDate">
+                    <label for="dueDate" id="dueDate-label">Due Date</label>
+                    <input type="date" id="dueDate" name="dueDate" placeholder="dd/mm/yyyy">
+                </div>
+            </div>
+            <div class="submit-button">
+                <button type="submit">Add task</button>
+            </div>
+        </form>
+        <div class="tasks">
+            <%if(tasks!=null){%>
+            <% for(task of tasks){%>
+            <div class="task">
+                <div class="check">
+                    <%if(task.status=="complete"){%>
+                    <a href="tasks/mark-complete?id=<%=task._id%>&status=<%=task.status%>"><i
+                            class="fas fa-check-circle"></i></a>
+                    <%}else{%>
+                    <a href="tasks/mark-complete?id=<%=task._id%>&status=<%=task.status%>"><i
+                            class="far fa-circle"></i></a>
+                    <%}%>
+            </div>
+            <div class="content">
+                <%if(task.status=="incomplete"){%>
+                    <%=task.title%>
+                    <%=task.label%>
+                    <%=task.dueDate%>
+                    <%}else{%>
+                    <strike>
+                        <%=task.title%>
+                        <%=task.label%>
+                        <%=task.dueDate%>
+                    </strike>s
+                    <%}%>
+            </div>
+            <div class="delete"><a href="tasks/delete?id=<%=task._id%>"><i class="far fa-times-circle"></i></a></div>
+                <a href="tasks/edit?id=<%=task._id%>">edit</a>
+            </div>
+            <%}%>
+            <%}%>
+        </div>
+    </main>
+</body>
+
+</html>

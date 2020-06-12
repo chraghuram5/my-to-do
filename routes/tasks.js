@@ -1,0 +1,10 @@
+const express=require('express');
+const router=express.Router();
+const app=express();
+app.use(express.urlencoded());
+const taskController=require('../controllers/tasks_controller');
+router.get('/',taskController.tasks);
+router.post('/create-task',taskController.createTask);
+router.get('/mark-complete',taskController.markComplete);
+router.get('/delete',taskController.deleteTask);
+module.exports=router;
