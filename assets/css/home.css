@@ -1,5 +1,106 @@
 body{
     border: 0px;
+    margin: 0px;
     background-color: teal;
     color: rebeccapurple;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+i{
+    color: white;
+}
+
+input{
+    outline: none;
+}
+
+select{
+    outline: none;
+}
+
+main{
+    width: 50%;
+    background-color: black
+}
+
+.description{
+    margin: 1rem;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem 0.5rem;
+}
+
+.description #title-label{
+    font-weight: bolder;
+    font-size: large;
+}
+
+.description #title{
+    width: 100%;
+    height: 5%;
+    font-size: medium;
+    border: 0px;
+}
+
+.category{
+    margin: 1rem;
+    width: 50%;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem 0.5rem;
+}
+
+.category #category-label{
+    font-weight: bolder;
+    font-size: large;
+}
+
+.category #label{
+    width: 100%;
+    height: 2rem;
+    font-size: medium;
+    border: 0px;
+}
+
+.dueDate{
+    margin: 1rem;
+    width: 50%;
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem 0.5rem;
+}
+
+.dueDate #dueDate-label{
+    font-weight: bolder;
+    font-size: large;
+}
+
+.dueDate #dueDate{
+    width: 100%;
+    height: 2rem;
+    font-size: medium;
+    border: 0px;
+}
+
+.category-dueDate{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.submit-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.submit-button button{
+    background-color: whitesmoke;
+    color: rebeccapurple;
+    font-weight: bolder;
+    font-size: large;
+    border-radius: 1rem;
+    width: 10%;
 }
